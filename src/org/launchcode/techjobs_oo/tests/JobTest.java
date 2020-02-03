@@ -81,8 +81,6 @@ public class JobTest {
 
         String[] lines = testJob.toString().trim().split("\n");
 
-        System.out.println(testJob.toString());
-
         assertTrue(lines.length == 6);
 
         assertTrue(lines[0].startsWith("ID:"));
