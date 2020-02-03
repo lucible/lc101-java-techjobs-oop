@@ -43,9 +43,21 @@ public class Job {
                 // don't do anything
             } else {
                 try {
-                    if (f.get(this) == null) {
+                    // if this is a job field...
+                    if (f.get(this) instanceof JobField) {
+                        // if this job field is not completed...
+                        if (((JobField) f.get(this)).getValue() == "") {
+                            // print unavailable
+                            message = message + labels[index] + unavailable + "\n";
+                        } else {
+                            // else, print job field value
+                            message = message + labels[index] + f.get(this) + "\n";
+                        }
+                    } else if (f.get(this) == null || f.get(this) == "") { // not a job field, null or empty
+                        // print unavailable
                         message = message + labels[index] + unavailable + "\n";
                     } else {
+                        // else, print non-job-field value (eg. name value)
                         message = message + labels[index] + f.get(this) + "\n";
                     }
                     index++;

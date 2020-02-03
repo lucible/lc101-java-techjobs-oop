@@ -81,6 +81,8 @@ public class JobTest {
 
         String[] lines = testJob.toString().trim().split("\n");
 
+        System.out.println(testJob.toString());
+
         assertTrue(lines.length == 6);
 
         assertTrue(lines[0].startsWith("ID:"));
@@ -103,6 +105,8 @@ public class JobTest {
         Job testJob = new Job();
 
         String[] lines = testJob.toString().trim().split("\n");
+
+        System.out.println(testJob.toString());
         
         // removing the ID field, which will always have data
         List<String> list = new ArrayList<String>(Arrays.asList(lines));
